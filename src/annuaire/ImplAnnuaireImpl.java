@@ -174,6 +174,7 @@ public class ImplAnnuaireImpl extends AnnuairePOA{
 	@Override
 	public boolean verifierDansAnnuaire(int id, String mdp)	throws collabNExistepas {
 		boolean est = false;
+		initialise();
 		if (dansAnnuairePerm.size()==0 && dansAnnuairePonc.size()==0 ) {				
 			throw new collabNExistepas("Le collaborateur n'existe pas");
 		}

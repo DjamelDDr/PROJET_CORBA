@@ -64,6 +64,20 @@ public class ImplGestionDesEmpreintes extends EmpreintePOA{
 	public String ajouterEmpreinte(int idCollaborateur,String uneEmpreinte,String typeCollab){				
 			ObjetUneEmpreinte clb   = new ObjetUneEmpreinte(idCollaborateur,uneEmpreinte,typeCollab);
 			dansEmpreintePerm.put(idCollaborateur, clb);
-		return "lempreinte";
+		return "l'empreinte du collaborateur est ajoutée";
+	}
+	
+	public String modifierEmpreinte(String newEmpreinte, int idCollab, String typeCollab) {
+		String reponse =  "";
+		initialise();
+		if(typeCollab.toUpperCase().equals("PERMANENT") && 
+				dansEmpreintePerm.get(idCollab).getIdCollaborateur() == idCollab){
+			dansEmpreintePerm.put(idCollab,new ObjetUneEmpreinte(idCollab, newEmpreinte, "PERMANENT"));
+			reponse = "l'empreinte du collaborateur est modifiée";
+		}else if(typeCollab.equals("PONCTUEL")){
+			dansEmpreintePonc.put(idCollab,new ObjetUneEmpreinte(idCollab, newEmpreinte, "PONCTUEL"));
+			reponse = "l'empreinte du collaborateur est modifiée";
+		}else reponse = "l'empreinte du collaborateur n'est pas modifiée";
+		return reponse;
 	}
 }
