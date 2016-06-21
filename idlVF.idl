@@ -1,0 +1,149 @@
+	module gestionDesComptes{
+
+		typedef string Nom; 
+		typedef string Prenom;
+		typedef string Photo; 
+		typedef unsigned long Id;
+		typedef string MotDePasse;
+
+		enum typeCollaborateur{permanent, ponctuel};
+
+		struct Collaborateur {	
+			Id idCollab; 
+			Nom nom; 
+			Prenom prenom; 
+			MotDePasse mdp; 
+			Photo photo; 
+			typeCollaborateur tcollab;
+		};
+
+		interface CreationDeCompte{			
+			exception collabExisteDeja {string messageDErreur; };
+			exception collabInconnu {string messageDErreur; };
+			
+			long ajouterCollab(in Collaborateur c) raises (collabExisteDeja);
+			boolean modifierCollab(in Collaborateur c) raises (collabInconnu);
+			boolean supprimerCollab(in Id id, in string typeDuCollb ) raises (collabInconnu);
+		}; 
+	}; 
+		
+	module gestionDesEmpreintes{
+	
+		typedef unsigned long Id;
+		
+
+		interface Empreinte{
+			
+			exception empreinteNExistepas {string messageDErreur;	};
+			boolean supprimerEmpreinte(in Id id, in string typeDuCollb) raises (empreinteNExistepas);
+			
+			boolean verifierEmpreinte(in Id id, in string lempreinte)raises (empreinteNExistepas);
+			
+		};
+	};
+
+	module annuaire{
+		typedef string Nom; 
+		typedef string Prenom;
+		typedef string Photo; 
+		typedef unsigned long Id;
+		typedef string MotDePasse;
+
+		enum typeCollaborateur{permanent, ponctuel};
+
+		struct Collaborateur {	
+			Id idCollab; 
+			Nom nom; 
+			Prenom prenom; 
+			MotDePasse mdp; 
+			Photo photo; 
+			typeCollaborateur tcollab;
+		};
+		
+		typedef string lempreinte;
+
+		interface Annuaire{	
+
+			exception collabExisteDeja {string messageDErreur;	};
+			exception collabNExistepas{string messageDErreur;	};
+			
+			long ajouterDansAnnuaire(in Collaborateur c) raises (collabExisteDeja);
+			boolean modifierDansAnnuaire(in Id id, in Nom nom, in Prenom prenom, in MotDePasse mdp,in Photo photo) raises (collabNExistepas );		
+			boolean associationDansAnnuaire(in Id id, in Photo photo) raises (collabNExistepas );
+			
+			boolean supprimerDansAnnuaire(in Id id,in Photo photo,in string typeDuCollb) raises (collabNExistepas);
+			boolean verifierDansAnnuaire(in Id id, in MotDePasse mdp) raises (collabNExistepas );
+
+		}; 
+	};
+	
+	module entreeSortie{
+	interface EntreeSortie{
+			
+		};
+	}; 
+		
+	module autorisation{
+		typedef string Nom; 
+		typedef string Prenom;
+		typedef string Photo; 
+		typedef unsigned long Id;
+		typedef string MotDePasse;
+
+		enum typeCollaborateur{permanent, ponctuel};
+
+		struct Collaborateur {	
+			Id idCollab; 
+			Nom nom; 
+			Prenom prenom; 
+			MotDePasse mdp; 
+			Photo photo; 
+			typeCollaborateur tcollab;
+		};
+
+		typedef string numPorte;
+		typedef string idZone;
+		typedef string heureDebut;
+		typedef string heureFin;
+		typedef string jourDebut;
+		typedef string jourFin;
+		typedef boolean autorise;
+		
+		interface Autorisation{
+			exception autorisationCollabInterdite {string messageDErreur;};
+			
+			boolean autorisationPermanent(in Id id, in string heureDebut, 
+					in string heureFin, in string numPorte) 
+					raises(autorisationCollabInterdite);
+			boolean autorisationPonctuel(in Id id, in string jourDebut, in string jourFin,  in string heureDebut,
+													in string heureFin, in string numPorte)	raises(autorisationCollabInterdite);
+			
+		};
+	};
+		
+	module journalisation{
+		typedef string Nom; 
+		typedef string Prenom;
+		typedef string Photo; 
+		typedef unsigned long Id;
+		typedef string MotDePasse;
+		enum typeCollaborateur{permanent, ponctuel};
+
+		struct Collaborateur {	
+			Id idCollab; 
+			Nom nom; 
+			Prenom prenom; 
+			MotDePasse mdp; 
+			Photo photo; 
+			typeCollaborateur tcollab;
+		};
+
+		interface Journalisation{
+			typedef string numPorte;
+			typedef string idZone;
+			typedef string horaire;
+			typedef boolean autorise;
+			oneway void historiser(in Collaborateur c, in string numPorte, in string idZone, in string horaire, in boolean autorise);
+		};
+
+	};
