@@ -1,30 +1,4 @@
-	module gestionDesComptes{
-
-		typedef string Nom; 
-		typedef string Prenom;
-		typedef string Photo; 
-		typedef unsigned long Id;
-		typedef string MotDePasse;
-
-		enum typeCollaborateur{permanent, ponctuel};
-
-		struct Collaborateur {	
-			Id idCollab; 
-			Nom nom; 
-			Prenom prenom; 
-			MotDePasse mdp; 
-			Photo photo; 
-			typeCollaborateur tcollab;
-		};
-
-		interface CreationDeCompte{			
-			exception collabExisteDeja {string messageDErreur; };
-			exception collabInconnu {string messageDErreur; };
-			
-			long ajouterCollab(in Collaborateur c) raises (collabExisteDeja);
-			boolean modifierCollab(in Collaborateur c) raises (collabInconnu);
-			boolean supprimerCollab(in Id id, in string typeDuCollb ) raises (collabInconnu);
-		}; 
+	module gestionDesComptes{ 
 	}; 
 		
 	module gestionDesEmpreintes{
