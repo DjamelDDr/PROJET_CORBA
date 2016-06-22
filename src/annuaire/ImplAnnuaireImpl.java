@@ -29,7 +29,7 @@ public class ImplAnnuaireImpl extends AnnuairePOA{
 	@Override
 	public boolean associationDansAnnuaire(int id, String photo)throws collabNExistepas {
 		boolean reponse = false;
-		//initialise();//JDD
+		initialise();//JDD
 		if (dansAnnuairePerm.size()==0 && dansAnnuairePonc.size()==0 ) {				
 			throw new collabNExistepas("Le collaborateur n'existe pas");
 		}		
@@ -53,7 +53,7 @@ public class ImplAnnuaireImpl extends AnnuairePOA{
 
 /*les cas non pris en compte : 1 collab dans map Perm et Ponc == NON peut etre dans l'1 ou l'autre mais la vérif n'y est pas*/
 	public int ajouterDansAnnuaire(Collaborateur c) throws collabExisteDeja {	
-		//initialise();//JDD
+		initialise();//JDD
 		if (c.tcollab.toString() == "permanent") {
 			Iterator<Integer> iPerm = dansAnnuairePerm.keySet().iterator();
 			if (dansAnnuairePerm.size()==0 ) {				
@@ -121,7 +121,7 @@ public class ImplAnnuaireImpl extends AnnuairePOA{
 
 	public boolean associationDansAnnuaireInterne(int id, String photo,String nom)throws collabNExistepas {
 		boolean reponse=false;
-		//initialise();//JDD
+		initialise();//JDD
 		if (dansAnnuairePerm.size()==0 && dansAnnuairePonc.size()==0 ) {				
 			throw new collabNExistepas("Le collaborateur n'existe pas");
 		}		
@@ -151,10 +151,8 @@ public class ImplAnnuaireImpl extends AnnuairePOA{
 			throws collabNExistepas {
 	    boolean reponse = false;
 		boolean pasDsPer =false;boolean pasDsPon =false;
-		if (id ==0 && nom == null && prenom ==null  && mdp == null && photo == null  ) 
-		{throw new collabNExistepas("Les champs saisis vides, veuillez les renseigner ");}
+		if (id ==0 && nom == null && prenom ==null  && mdp == null && photo == null  ) {throw new collabNExistepas("Les champs saisis vides, veuillez les renseigner ");}
 		else{
-			//System.out.println("oooooooooo"+(associationDansAnnuaireInterne(id,photo,nom)));
 			if(associationDansAnnuaireInterne(id,photo,nom)){
 				for (Entry<Integer, Collaborateur> e : dansAnnuairePerm.entrySet()) {
 

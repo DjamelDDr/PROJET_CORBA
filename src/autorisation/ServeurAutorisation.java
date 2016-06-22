@@ -20,9 +20,8 @@ public class ServeurAutorisation {
 	
 	        // Creation du servant
 	        //*********************
-	        
 	        ImplAutorisationImpl autoriz = new ImplAutorisationImpl();
-	        String nomObjAutoriz = "serviceAutoriz";
+	        
 	        // Activer le servant au sein du POA et recuperer son ID
 	        byte[] monEuroId = rootPOA.activate_object(autoriz);
 	
@@ -39,7 +38,7 @@ public class ServeurAutorisation {
 	        org.omg.CosNaming.NameComponent[] nameToRegister = new org.omg.CosNaming.NameComponent[1];
 	        //System.out.println("Sous quel nom voulez-vous enregistrer l'objet Corba ?");
 	        //BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-	        
+	        String nomObjAutoriz = "serviceAutoriz";
 	        nameToRegister[0] = new org.omg.CosNaming.NameComponent(nomObjAutoriz,"");
 	
 	        // Enregistrement de l'objet CORBA dans le service de noms

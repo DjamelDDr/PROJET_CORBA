@@ -19,11 +19,12 @@ public class ImplGestionDesComptes extends CreationDeComptePOA{
 		// TODO Auto-generated method stub
 		
 	}
+
 	@Override
-	public boolean supprimerCollab(int id, String typeDuCollb)
-			throws collabInconnu {
-		// TODO Auto-generated method stub
+	public boolean supprimerCollab(int id) throws collabInconnu {
 		return false;
+		// TODO Auto-generated method stub
+		
 	}
 
 }

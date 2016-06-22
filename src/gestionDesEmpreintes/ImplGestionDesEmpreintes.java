@@ -23,7 +23,6 @@ public class ImplGestionDesEmpreintes extends EmpreintePOA{
 	public boolean verifierEmpreinte(int id, String lempreinte)
 			throws empreinteNExistepas {
 		boolean existe=false;
-		initialise();
 		if (dansEmpreintePerm.size()==0 && dansEmpreintePonc.size()==0 ) {				
 			throw new empreinteNExistepas("Il n'y a d'empreinte. Le collaborateur n'existe pas");
 		}else{
@@ -36,6 +35,7 @@ public class ImplGestionDesEmpreintes extends EmpreintePOA{
 			}else {
 				throw new empreinteNExistepas("Le collaborateur n'existe pas");
 			}
+			
 		}
 		return existe;
 

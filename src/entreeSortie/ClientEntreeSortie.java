@@ -23,6 +23,8 @@ public class ClientEntreeSortie {
 			
 			org.omg.CORBA.ORB orb = org.omg.CORBA.ORB.init(args,null);
 
+	        // Nom de l'objet CORBA
+	        //String idObjEmp = ""
 	        String idObjEmprein = "serviceEmpreinte";
 	        String idObjAutoriz = "serviceAutoriz";
 	        String idObjAnnuair = "serviceAnnuaire";
@@ -80,7 +82,7 @@ public class ClientEntreeSortie {
 		
 		
 		try {
-			if (serviceEmpreinte.verifierEmpreinte(idCollaborateur, empreinte)) {
+			if (serviceEmpreinte.verifierEmpreinte(1, "lempreinte")) {
 				System.out.println("l'empreinte exite");
 			}else{
 				throw new empreinteNExistepas("le collaborateur n'existe pas");

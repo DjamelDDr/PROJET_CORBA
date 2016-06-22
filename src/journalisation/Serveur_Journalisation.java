@@ -19,7 +19,7 @@ public class Serveur_Journalisation {
 	
 	        // Creation du servant
 	        //*********************
-	        ImplJournalisation histo = new ImplJournalisation();
+	        Impl_Journalisation histo = new Impl_Journalisation();
 	        
 	
 	        // Activer le servant au sein du POA et recuperer son ID

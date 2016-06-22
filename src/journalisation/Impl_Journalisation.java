@@ -8,7 +8,7 @@ import java.util.Map.Entry;
 
 
 
-public class ImplJournalisation extends JournalisationPOA{
+public class Impl_Journalisation extends JournalisationPOA{
 	
 	public HashMap<Long, List<UneEntreeDeLhistorique>> historisation = new HashMap<Long, List<UneEntreeDeLhistorique>>();
 
