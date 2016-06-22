@@ -12,9 +12,9 @@ import autorisation.AutorisationPackage.autorisationCollabInterdite;
 public class ImplAutorisationImpl extends AutorisationPOA{
 	
 	
-	public static String[] zoneA={"P1","P2","P3"};
-	public static String[] zoneB={"P4","P5","P6"};
-	public static String[] zoneC={"P7","P8","P9"};
+	public String[] zoneA={"P1","P2","P3"};
+	public String[] zoneB={"P4","P5","P6"};
+	public String[] zoneC={"P7","P8","P9"};
 	public HashMap<Long, String[]> historisation = 
 			new HashMap<Long, String[]>();
 	

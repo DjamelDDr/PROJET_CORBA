@@ -90,6 +90,7 @@ public class ClientGestionDesEmpreintes {
 			} catch (collabNExistepas e) {
 				System.out.println(e.messageDErreur);
 			}
+			break;
 		case 2://modifier
 			System.out.println("Entrer votre Id ");
 			int idCollaba = entree_id.nextInt();				

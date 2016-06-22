@@ -104,7 +104,7 @@ public class ClientGestionDesComptes {
 					case 1://RH: ajouter
 						System.out.println("entrer le Nom");
 						String nomz = entree_Nom.nextLine();				
-						System.out.println("entrer l'annienne photo :");
+						System.out.println("entrer la photo :");
 						String photoz = entree_photo.nextLine();	
 						System.out.println("entrer le Prenom");
 						String prenomz = entree_Prenom.nextLine();
@@ -116,7 +116,7 @@ public class ClientGestionDesComptes {
 						idCollabPermUniq++;
 						try {
 							int numeroId = serviceAnnuaire.ajouterDansAnnuaire(collaborateurPonc);
-							
+							System.out.println("L'id du nouveau collaborateur : "+numeroId);
 						} catch (collabExisteDeja e1) {
 							// TODO Auto-generated catch block
 							System.out.println(e1.messageDErreur);
@@ -133,10 +133,11 @@ public class ClientGestionDesComptes {
 						String photozz = entree_photo.nextLine();
 						try {
 						reponseii= serviceAnnuaire.associationDansAnnuaire(1, photozz);
+						
 						if (reponseii)System.out.println("Le collabolarateur existe:  ");
 							try {
 								boolean reponse = false;	
-								System.out.println("Les modifications");
+								System.out.println("Début de saisie des modifications");
 								System.out.println("entrer la photo :");
 								String photod = entree_photo.nextLine();	
 								System.out.println("entrer le Prenom");
@@ -186,7 +187,7 @@ public class ClientGestionDesComptes {
 						break;
 					case 0:// End
 						scPerm.close();
-						fin = true;
+						finPerm = true;
 						break;
 					}
 				}
@@ -229,7 +230,7 @@ public class ClientGestionDesComptes {
 								idCollabPermUniq++;
 						try {
 							int numeroId = serviceAnnuaire.ajouterDansAnnuaire(collaborateurPonc);
-							System.out.println("L'id du nouveau collaborateur "+numeroId);
+							System.out.println("L'id du nouveau collaborateur : "+numeroId);
 						} catch (collabExisteDeja e1) {
 							// TODO Auto-generated catch block
 							System.out.println(e1.messageDErreur);
@@ -284,7 +285,7 @@ public class ClientGestionDesComptes {
 						break;
 					case 0:// End
 						scPerm.close();
-						fin = true;
+						finPonc = true;
 						break;
 					}
 				}						
