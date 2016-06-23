@@ -15,9 +15,10 @@ public class ImplAnnuaireImpl extends AnnuairePOA{
 	public int taillePonc = 0;
 	public static int idCollabPermUniq = 0;
 	public static int idCollabPoncUniq = 0;
+	
 /*
  * attention fonction à supprimer uniquement pr les tests
- */
+
 	public void initialise(){
 		Collaborateur clb = new Collaborateur(1, "a", "a", "a", "A",typeCollaborateur.from_int(0));dansAnnuairePerm.put(1, clb);
 		Collaborateur clbb = new Collaborateur(2, "b", "b", "b", "b",typeCollaborateur.from_int(0));dansAnnuairePerm.put(2, clbb);
@@ -26,10 +27,40 @@ public class ImplAnnuaireImpl extends AnnuairePOA{
 		dansAnnuairePerm.put(1, clb);dansAnnuairePerm.put(2, clbb);
 		dansAnnuairePonc.put(1, clbc);dansAnnuairePonc.put(2, clbbd);
 	}	
+ */	
+	public ImplAnnuaireImpl() {
+		Collaborateur clb = new Collaborateur(1, "a", "a", "a", "A",typeCollaborateur.from_int(0));dansAnnuairePerm.put(1, clb);
+		Collaborateur clbb = new Collaborateur(2, "b", "b", "b", "b",typeCollaborateur.from_int(0));dansAnnuairePerm.put(2, clbb);
+		Collaborateur clbc = new Collaborateur(1, "a1", "a1", "a1", "A1",typeCollaborateur.from_int(1));dansAnnuairePonc.put(2, clbc);
+		Collaborateur clbbd = new Collaborateur(2, "b2", "b2", "b2", "b2",typeCollaborateur.from_int(1));dansAnnuairePonc.put(2, clbbd);
+		dansAnnuairePerm.put(1, clb);dansAnnuairePerm.put(2, clbb);
+		dansAnnuairePonc.put(1, clbc);dansAnnuairePonc.put(2, clbbd);
+	}
+	@Override
+	public boolean existerDansLeSystem(int id, String typeDuCollb)
+			throws collabNExistepas {
+		boolean reponse=false;
+		//initialise();
+		if (dansAnnuairePerm.size()==0 && dansAnnuairePonc.size()==0 ) {				
+			throw new collabNExistepas("Le collaborateur n'existe pas");
+		}else 
+			switch (typeDuCollb.toUpperCase()) {
+			
+			case "PERMANENT":
+				if(dansAnnuairePerm.containsKey(id))reponse=true; else throw new collabNExistepas("Le collaborateur n'existe pas");
+				break;
+			case "PONCTUEL":
+				if(dansAnnuairePonc.containsKey(id))reponse=true; else throw new collabNExistepas("Le collaborateur n'existe pas");
+				break;
+			default:
+				throw new collabNExistepas("Le collaborateur n'existe pas");
+			} 			
+		return reponse;
+	}
 	@Override
 	public boolean associationDansAnnuaire(int id, String photo)throws collabNExistepas {
 		boolean reponse = false;
-		initialise();//JDD
+//		initialise();//JDD
 		if (dansAnnuairePerm.size()==0 && dansAnnuairePonc.size()==0 ) {				
 			throw new collabNExistepas("Le collaborateur n'existe pas");
 		}		
@@ -53,7 +84,7 @@ public class ImplAnnuaireImpl extends AnnuairePOA{
 
 /*les cas non pris en compte : 1 collab dans map Perm et Ponc == NON peut etre dans l'1 ou l'autre mais la vérif n'y est pas*/
 	public int ajouterDansAnnuaire(Collaborateur c) throws collabExisteDeja {	
-		initialise();//JDD
+	//	initialise();//JDD
 		if (c.tcollab.toString() == "permanent") {
 			Iterator<Integer> iPerm = dansAnnuairePerm.keySet().iterator();
 			if (dansAnnuairePerm.size()==0 ) {				
@@ -99,7 +130,7 @@ public class ImplAnnuaireImpl extends AnnuairePOA{
 	@Override
 	public boolean supprimerDansAnnuaire(int id, String photo,String typeDuCollb) throws collabNExistepas {
 		boolean reponse=false;
-		initialise();
+	//	initialise();
 		
 		if (dansAnnuairePerm.size()==0 && dansAnnuairePonc.size()==0 ) {				
 			throw new collabNExistepas("Le collaborateur n'existe pas");
@@ -121,7 +152,7 @@ public class ImplAnnuaireImpl extends AnnuairePOA{
 
 	public boolean associationDansAnnuaireInterne(int id, String photo,String nom)throws collabNExistepas {
 		boolean reponse=false;
-		initialise();//JDD
+	//	initialise();//JDD
 		if (dansAnnuairePerm.size()==0 && dansAnnuairePonc.size()==0 ) {				
 			throw new collabNExistepas("Le collaborateur n'existe pas");
 		}		
@@ -174,7 +205,7 @@ public class ImplAnnuaireImpl extends AnnuairePOA{
 	@Override
 	public boolean verifierDansAnnuaire(int id, String mdp)	throws collabNExistepas {
 		boolean est = false;
-		initialise();
+//		initialise();
 		if (dansAnnuairePerm.size()==0 && dansAnnuairePonc.size()==0 ) {				
 			throw new collabNExistepas("Le collaborateur n'existe pas");
 		}
@@ -190,6 +221,6 @@ public class ImplAnnuaireImpl extends AnnuairePOA{
 		
 		
 	}
-
+	
 
 }

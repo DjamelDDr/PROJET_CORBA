@@ -16,14 +16,17 @@ public class ObjetZone {
 	final String dimanche="DIMANCHE";
 	
 	private String nomZone ;
+	private String typeCollab;
 	
 	//attention aux doublons
-	private ArrayList<ObjetPorte> listDeporte = new ArrayList<ObjetPorte>(); 
-	private HashMap<String, ObjetHoraire> listDejours  = new HashMap<String, ObjetHoraire>();
+	//private ArrayList<ObjetPorte> listDeporte = new ArrayList<ObjetPorte>(); 
+	//private HashMap<String, ObjetHoraire> listDejours  = new HashMap<String, ObjetHoraire>();
 	
-	public ObjetZone(String nomZone){
-		//pour un ponctuel
+	
+	public ObjetZone(String nomZone,String typeCollab){
 		this.nomZone=nomZone;
+		this.typeCollab=typeCollab;
+	/*
 		listDejours.put(lundi, new ObjetHoraire("", ""));
 		listDejours.put(mardi, new ObjetHoraire("", ""));
 		listDejours.put(mercredi, new ObjetHoraire("", ""));
@@ -31,9 +34,9 @@ public class ObjetZone {
 		listDejours.put(vendredi, new ObjetHoraire("", ""));
 		listDejours.put(samedi, new ObjetHoraire("", ""));
 		listDejours.put(dimanche, new ObjetHoraire("", ""));
+	*/
 	}
-	
-	
+/*	
 	public String consulteAutorizJour(String jour){
 		String aut = "";
 		System.out.println(jour);
@@ -64,6 +67,8 @@ public class ObjetZone {
 		}
 		return reponse;
 	}
+*/	
+
 	
 	public String getNomZone() {
 		return nomZone;
@@ -72,10 +77,10 @@ public class ObjetZone {
 	public void setNomZone(String nomZone) {
 		this.nomZone = nomZone;
 	}
-	
+/*	
 	public void ajouteUnePorte(ObjetPorte nomPorte){
 		this.listDeporte.add(nomPorte);
 	}
-	
+*/	
 	
 }
