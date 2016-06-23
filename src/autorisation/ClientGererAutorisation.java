@@ -38,17 +38,7 @@ public class ClientGererAutorisation {
 			break;
 			}
 		}
-	/*	
-		
-		System.out.println("l'id du collaborateur");
-		String idColla = idCollaborateur.nextLine();
-		
-		System.out.println("entrer l'empreinte");
-		String empreinte = entree_empreinte.nextLine();
-		
-		System.out.println("entrer l'id");
-		int idCollaborateur = entree_empreinte.nextInt();
-	*/	
+	
 		
 	}
 
