@@ -48,6 +48,8 @@
 			
 			boolean supprimerDansAnnuaire(in Id id,in Photo photo,in string typeDuCollb) raises (collabNExistepas);
 			boolean verifierDansAnnuaire(in Id id, in MotDePasse mdp) raises (collabNExistepas );
+			
+			boolean existerDansLeSystem(in Id id,in string typeDuCollb) raises (collabNExistepas);
 
 		}; 
 	};
@@ -87,12 +89,13 @@
 		interface Autorisation{
 			exception autorisationCollabInterdite {string messageDErreur;};
 			
-			boolean autorisationPermanent(in Collaborateur c, in string heureDebut, 
+			boolean autorisationPermanent(in Id id, in string heureDebut, 
 					in string heureFin, in string numPorte) 
 					raises(autorisationCollabInterdite);
-			boolean autorisationPonctuel(in Collaborateur c, in string jourDebut, in string jourFin,  in string heureDebut,
-													in string heureFin, in string numPorte)	raises(autorisationCollabInterdite);
-			
+
+			boolean autorisationPonctuel(in Id id, in string jourDebut, in string jourFin,  
+					in string heureDebut,in string heureFin, in string numPorte)	
+					raises(autorisationCollabInterdite);
 		};
 	};
 		
