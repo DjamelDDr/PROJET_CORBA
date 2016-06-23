@@ -1,4 +1,5 @@
 	module gestionDesComptes{ 
+	interface CreationDeCompte{	};
 	}; 
 		
 	module gestionDesEmpreintes{
@@ -86,10 +87,10 @@
 		interface Autorisation{
 			exception autorisationCollabInterdite {string messageDErreur;};
 			
-			boolean autorisationPermanent(in Id id, in string heureDebut, 
+			boolean autorisationPermanent(in Collaborateur c, in string heureDebut, 
 					in string heureFin, in string numPorte) 
 					raises(autorisationCollabInterdite);
-			boolean autorisationPonctuel(in Id id, in string jourDebut, in string jourFin,  in string heureDebut,
+			boolean autorisationPonctuel(in Collaborateur c, in string jourDebut, in string jourFin,  in string heureDebut,
 													in string heureFin, in string numPorte)	raises(autorisationCollabInterdite);
 			
 		};
