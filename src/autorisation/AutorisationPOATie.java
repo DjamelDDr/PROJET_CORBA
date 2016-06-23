@@ -65,19 +65,19 @@ public class AutorisationPOATie extends AutorisationPOA
     /**
      * Operation autorisationPermanent
      */
-    public boolean autorisationPermanent(autorisation.Collaborateur c, String heureDebut, String heureFin, String numPorte)
+    public boolean autorisationPermanent(int id, String heureDebut, String heureFin, String numPorte)
         throws autorisation.AutorisationPackage.autorisationCollabInterdite
     {
-        return _tie.autorisationPermanent( c,  heureDebut,  heureFin,  numPorte);
+        return _tie.autorisationPermanent( id,  heureDebut,  heureFin,  numPorte);
     }
 
     /**
      * Operation autorisationPonctuel
      */
-    public boolean autorisationPonctuel(autorisation.Collaborateur c, String jourDebut, String jourFin, String heureDebut, String heureFin, String numPorte)
+    public boolean autorisationPonctuel(int id, String jourDebut, String jourFin, String heureDebut, String heureFin, String numPorte)
         throws autorisation.AutorisationPackage.autorisationCollabInterdite
     {
-        return _tie.autorisationPonctuel( c,  jourDebut,  jourFin,  heureDebut,  heureFin,  numPorte);
+        return _tie.autorisationPonctuel( id,  jourDebut,  jourFin,  heureDebut,  heureFin,  numPorte);
     }
 
 }

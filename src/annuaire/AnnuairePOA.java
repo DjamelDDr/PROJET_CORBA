@@ -37,6 +37,8 @@ public abstract class AnnuairePOA extends org.omg.PortableServer.Servant
                 return _invoke_ajouterDansAnnuaire(_is, handler);
         } else if (opName.equals("associationDansAnnuaire")) {
                 return _invoke_associationDansAnnuaire(_is, handler);
+        } else if (opName.equals("existerDansLeSystem")) {
+                return _invoke_existerDansLeSystem(_is, handler);
         } else if (opName.equals("modifierDansAnnuaire")) {
                 return _invoke_modifierDansAnnuaire(_is, handler);
         } else if (opName.equals("supprimerDansAnnuaire")) {
@@ -154,6 +156,29 @@ public abstract class AnnuairePOA extends org.omg.PortableServer.Servant
         try
         {
             boolean _arg_result = verifierDansAnnuaire(arg0_in, arg1_in);
+
+            _output = handler.createReply();
+            _output.write_boolean(_arg_result);
+
+        }
+        catch (annuaire.AnnuairePackage.collabNExistepas _exception)
+        {
+            _output = handler.createExceptionReply();
+            annuaire.AnnuairePackage.collabNExistepasHelper.write(_output,_exception);
+        }
+        return _output;
+    }
+
+    private org.omg.CORBA.portable.OutputStream _invoke_existerDansLeSystem(
+            final org.omg.CORBA.portable.InputStream _is,
+            final org.omg.CORBA.portable.ResponseHandler handler) {
+        org.omg.CORBA.portable.OutputStream _output;
+        int arg0_in = annuaire.IdHelper.read(_is);
+        String arg1_in = _is.read_string();
+
+        try
+        {
+            boolean _arg_result = existerDansLeSystem(arg0_in, arg1_in);
 
             _output = handler.createReply();
             _output.write_boolean(_arg_result);

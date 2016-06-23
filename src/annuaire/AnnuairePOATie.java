@@ -107,4 +107,13 @@ public class AnnuairePOATie extends AnnuairePOA
         return _tie.verifierDansAnnuaire( id,  mdp);
     }
 
+    /**
+     * Operation existerDansLeSystem
+     */
+    public boolean existerDansLeSystem(int id, String typeDuCollb)
+        throws annuaire.AnnuairePackage.collabNExistepas
+    {
+        return _tie.existerDansLeSystem( id,  typeDuCollb);
+    }
+
 }

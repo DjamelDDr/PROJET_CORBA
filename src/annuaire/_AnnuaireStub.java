@@ -308,4 +308,61 @@ public class _AnnuaireStub extends org.omg.CORBA.portable.ObjectImpl
         }
     }
 
+    /**
+     * Operation existerDansLeSystem
+     */
+    public boolean existerDansLeSystem(int id, String typeDuCollb)
+        throws annuaire.AnnuairePackage.collabNExistepas
+    {
+        while(true)
+        {
+            if (!this._is_local())
+            {
+                org.omg.CORBA.portable.InputStream _input = null;
+                try
+                {
+                    org.omg.CORBA.portable.OutputStream _output = this._request("existerDansLeSystem",true);
+                    annuaire.IdHelper.write(_output,id);
+                    _output.write_string(typeDuCollb);
+                    _input = this._invoke(_output);
+                    boolean _arg_ret = _input.read_boolean();
+                    return _arg_ret;
+                }
+                catch(org.omg.CORBA.portable.RemarshalException _exception)
+                {
+                    continue;
+                }
+                catch(org.omg.CORBA.portable.ApplicationException _exception)
+                {
+                    String _exception_id = _exception.getId();
+                    if (_exception_id.equals(annuaire.AnnuairePackage.collabNExistepasHelper.id()))
+                    {
+                        throw annuaire.AnnuairePackage.collabNExistepasHelper.read(_exception.getInputStream());
+                    }
+
+                    throw new org.omg.CORBA.UNKNOWN("Unexpected User Exception: "+ _exception_id);
+                }
+                finally
+                {
+                    this._releaseReply(_input);
+                }
+            }
+            else
+            {
+                org.omg.CORBA.portable.ServantObject _so = _servant_preinvoke("existerDansLeSystem",_opsClass);
+                if (_so == null)
+                   continue;
+                annuaire.AnnuaireOperations _self = (annuaire.AnnuaireOperations) _so.servant;
+                try
+                {
+                    return _self.existerDansLeSystem( id,  typeDuCollb);
+                }
+                finally
+                {
+                    _servant_postinvoke(_so);
+                }
+            }
+        }
+    }
+
 }

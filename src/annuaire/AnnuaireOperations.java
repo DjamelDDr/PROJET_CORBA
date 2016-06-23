@@ -37,4 +37,10 @@ public interface AnnuaireOperations
     public boolean verifierDansAnnuaire(int id, String mdp)
         throws annuaire.AnnuairePackage.collabNExistepas;
 
+    /**
+     * Operation existerDansLeSystem
+     */
+    public boolean existerDansLeSystem(int id, String typeDuCollb)
+        throws annuaire.AnnuairePackage.collabNExistepas;
+
 }

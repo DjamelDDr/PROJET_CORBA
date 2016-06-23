@@ -16,13 +16,7 @@ public class ImplAutorisationImpl extends AutorisationPOA{
 	
 	public HashMap<Collaborateur, ObjetZone> autoriser = new HashMap<Collaborateur, ObjetZone>();
 	
-	@Override
-	public boolean autorisationPermanent(Collaborateur c, String heureDebut,
-			String heureFin, String numPorte)
-			throws autorisationCollabInterdite {
-		// TODO Auto-generated method stub
-		return false;
-	}
+
 
 	@Override
 	public boolean autorisationPonctuel(Collaborateur c, String jourDebut,
@@ -71,6 +65,14 @@ public class ImplAutorisationImpl extends AutorisationPOA{
 	public ObjetPorte p33 = new ObjetPorte("P3_Z3");
 
 
+
+	@Override
+	public boolean autorisationPermanent(Collaborateur arg0_in,
+			String heureDebut, String heureFin, String numPorte)
+			throws autorisationCollabInterdite {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	
 }
