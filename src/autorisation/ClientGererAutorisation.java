@@ -2,7 +2,7 @@ package autorisation;
 
 import java.util.Scanner;
 
-public class ClientAutorisation {
+public class ClientGererAutorisation {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -28,7 +28,7 @@ public class ClientAutorisation {
 				String laZone = zone.nextLine();
 				System.out.println("0 : Quitter");
 				
-			break;
+			break;  	
 			case 2://ajouter
 				System.out.println("Entrer l'id du collaborateur");
 				int idSalA= idCollaborateur.nextInt();
