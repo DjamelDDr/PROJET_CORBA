@@ -23,7 +23,7 @@ public class _AutorisationStub extends org.omg.CORBA.portable.ObjectImpl
     /**
      * Operation autorisationPermanent
      */
-    public boolean autorisationPermanent(int id, String heureDebut, String heureFin, String numPorte)
+    public boolean autorisationPermanent(autorisation.Collaborateur c, String heureDebut, String heureFin, String numPorte)
         throws autorisation.AutorisationPackage.autorisationCollabInterdite
     {
         while(true)
@@ -34,7 +34,7 @@ public class _AutorisationStub extends org.omg.CORBA.portable.ObjectImpl
                 try
                 {
                     org.omg.CORBA.portable.OutputStream _output = this._request("autorisationPermanent",true);
-                    autorisation.IdHelper.write(_output,id);
+                    autorisation.CollaborateurHelper.write(_output,c);
                     _output.write_string(heureDebut);
                     _output.write_string(heureFin);
                     _output.write_string(numPorte);
@@ -69,7 +69,7 @@ public class _AutorisationStub extends org.omg.CORBA.portable.ObjectImpl
                 autorisation.AutorisationOperations _self = (autorisation.AutorisationOperations) _so.servant;
                 try
                 {
-                    return _self.autorisationPermanent( id,  heureDebut,  heureFin,  numPorte);
+                    return _self.autorisationPermanent( c,  heureDebut,  heureFin,  numPorte);
                 }
                 finally
                 {
@@ -82,7 +82,7 @@ public class _AutorisationStub extends org.omg.CORBA.portable.ObjectImpl
     /**
      * Operation autorisationPonctuel
      */
-    public boolean autorisationPonctuel(int id, String jourDebut, String jourFin, String heureDebut, String heureFin, String numPorte)
+    public boolean autorisationPonctuel(autorisation.Collaborateur c, String jourDebut, String jourFin, String heureDebut, String heureFin, String numPorte)
         throws autorisation.AutorisationPackage.autorisationCollabInterdite
     {
         while(true)
@@ -93,7 +93,7 @@ public class _AutorisationStub extends org.omg.CORBA.portable.ObjectImpl
                 try
                 {
                     org.omg.CORBA.portable.OutputStream _output = this._request("autorisationPonctuel",true);
-                    autorisation.IdHelper.write(_output,id);
+                    autorisation.CollaborateurHelper.write(_output,c);
                     _output.write_string(jourDebut);
                     _output.write_string(jourFin);
                     _output.write_string(heureDebut);
@@ -130,7 +130,7 @@ public class _AutorisationStub extends org.omg.CORBA.portable.ObjectImpl
                 autorisation.AutorisationOperations _self = (autorisation.AutorisationOperations) _so.servant;
                 try
                 {
-                    return _self.autorisationPonctuel( id,  jourDebut,  jourFin,  heureDebut,  heureFin,  numPorte);
+                    return _self.autorisationPonctuel( c,  jourDebut,  jourFin,  heureDebut,  heureFin,  numPorte);
                 }
                 finally
                 {

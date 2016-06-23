@@ -62,31 +62,4 @@ public class CreationDeComptePOATie extends CreationDeComptePOA
             return super._default_POA();
     }
 
-    /**
-     * Operation ajouterCollab
-     */
-    public int ajouterCollab(gestionDesComptes.Collaborateur c)
-        throws gestionDesComptes.CreationDeComptePackage.collabExisteDeja
-    {
-        return _tie.ajouterCollab( c);
-    }
-
-    /**
-     * Operation modifierCollab
-     */
-    public boolean modifierCollab(gestionDesComptes.Collaborateur c)
-        throws gestionDesComptes.CreationDeComptePackage.collabInconnu
-    {
-        return _tie.modifierCollab( c);
-    }
-
-    /**
-     * Operation supprimerCollab
-     */
-    public boolean supprimerCollab(int id, String typeDuCollb)
-        throws gestionDesComptes.CreationDeComptePackage.collabInconnu
-    {
-        return _tie.supprimerCollab( id,  typeDuCollb);
-    }
-
 }

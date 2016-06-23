@@ -63,8 +63,8 @@ public class ClientGestionDesEmpreintes {
 		System.out.println("+---------------------------------------------------+");
 		System.out.println("|*************Gestion des Empreintes****************|");			
 		System.out.println("+---------------------------------------------------+");
-		System.out.println("| 1 - Ajouter ?                                          |");
-		System.out.println("| 2 - Modifier?                                      |");
+		System.out.println("| 1 - Ajouter ?                                     |");
+		System.out.println("| 2 - Modifier?                                     |");
 		System.out.println("| 0 - Terminer                                      |");
 		System.out.println("+---------------------------------------------------+");
 

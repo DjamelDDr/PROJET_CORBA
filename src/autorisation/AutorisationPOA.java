@@ -47,7 +47,7 @@ public abstract class AutorisationPOA extends org.omg.PortableServer.Servant
             final org.omg.CORBA.portable.InputStream _is,
             final org.omg.CORBA.portable.ResponseHandler handler) {
         org.omg.CORBA.portable.OutputStream _output;
-        int arg0_in = autorisation.IdHelper.read(_is);
+        autorisation.Collaborateur arg0_in = autorisation.CollaborateurHelper.read(_is);
         String arg1_in = _is.read_string();
         String arg2_in = _is.read_string();
         String arg3_in = _is.read_string();
@@ -72,7 +72,7 @@ public abstract class AutorisationPOA extends org.omg.PortableServer.Servant
             final org.omg.CORBA.portable.InputStream _is,
             final org.omg.CORBA.portable.ResponseHandler handler) {
         org.omg.CORBA.portable.OutputStream _output;
-        int arg0_in = autorisation.IdHelper.read(_is);
+        autorisation.Collaborateur arg0_in = autorisation.CollaborateurHelper.read(_is);
         String arg1_in = _is.read_string();
         String arg2_in = _is.read_string();
         String arg3_in = _is.read_string();
