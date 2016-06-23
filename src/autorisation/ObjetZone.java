@@ -1,18 +1,37 @@
 package autorisation;
 
+import java.util.ArrayList;
+
 public class ObjetZone {
-	private int idZone;
+//zone 		=> (nomZone, list[Objetporte])
+	private String nomZone ;
 	
-	//private String zonePorte[][] ={ {"zoneA","zoneB","zoneC"}, { }; 
-
-
-	private boolean estAutoriser;
-
-	public ObjetZone(int idZone, boolean zoneA, boolean zoneB, boolean zoneC,
-			boolean estAutoriser) {
+	private ArrayList<ObjetPorte> listDeporte = new ArrayList<ObjetPorte>(); ;
+	
+	public ObjetZone(String nomZone, String nomPorte){
+		this.nomZone=nomZone;
+		this.listDeporte.add(new ObjetPorte(nomPorte));
 		
-		this.estAutoriser = estAutoriser;
 	}
 	
+	public void ajouteUnePorte(String nomPorte){
+		this.listDeporte.add(new ObjetPorte(nomPorte));
+	}
+
+	public ArrayList<ObjetPorte> getListDeporte() {
+		return listDeporte;
+	}
+
+	public void setListDeporte(ArrayList<ObjetPorte> listDeporte) {
+		this.listDeporte = listDeporte;
+	}
+
+	public String getNomZone() {
+		return nomZone;
+	}
+	
+	public void setNomZone(String nomZone) {
+		this.nomZone = nomZone;
+	}
 	
 }
