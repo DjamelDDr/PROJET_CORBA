@@ -58,6 +58,7 @@ public class ClientEntreeSortie {
 		Scanner entree_photo = new Scanner(System.in);
 		Scanner entree_empreinte = new Scanner(System.in);
 		Scanner entree_id = new Scanner(System.in);
+		Scanner clb = new Scanner(System.in);
 		
 		System.out.println("entrer la photo :");
 		String photo = entree_photo.nextLine();
@@ -65,42 +66,44 @@ public class ClientEntreeSortie {
 		System.out.println("entrer l'empreinte");
 		String empreinte = entree_empreinte.nextLine();
 		
+		System.out.println("type du collab PERMANENT/PONCTUEL");
+		String col = clb.nextLine();
+		
 		System.out.println("entrer l'id");
 		int idCollaborateur = entree_empreinte.nextInt();		
+		
 		
 		boolean r=true;
 		boolean rEm=true;
 		boolean rAn=true;
-			
-		try {
-			r = serviceAutoriz.autorisationPermanent(1,"heureDebut", "heureFin", "numPorte");
-			System.out.println("reponse  Autoriz"+ r);
-			
-		} catch (autorisationCollabInterdite e) {
-			e.printStackTrace();
-		}
-		
-		
-		try {
-			if (serviceEmpreinte.verifierEmpreinte(1, "lempreinte")) {
-				System.out.println("l'empreinte exite");
-			}else{
-				throw new empreinteNExistepas("le collaborateur n'existe pas");
+		switch (col) {
+		case "PERMANENT":
+			try {
+				r = serviceAutoriz.autorisationPermanent(idCollaborateur,"heureDebut", "heureFin", "numPorte");
+				if(r)
+					System.out.println("Entrer ");
+				else System.out.println("entrée refusée ");
+			} catch (autorisationCollabInterdite e) {
+				e.printStackTrace();
 			}
+			break;
+		case "PONCTUEL":
+			try {
+				if (serviceEmpreinte.verifierEmpreinte(1, "lempreinte")) {
+					System.out.println("l'empreinte exite");
+				}else{
+					throw new empreinteNExistepas("le collaborateur n'existe pas");
+				}
 
-		} catch (empreinteNExistepas e) {
-			//e.printStackTrace();
-			System.out.println(e.messageDErreur);
-		}
-		/*	
-		try {
-			rAn =serviceAnnuaire.supprimerDansAnnuaire(3);
-			System.out.println("reponse  Annuaire"+ rAn);
-		} catch (collabNExistepas e) {
-			e.printStackTrace();
-			System.out.println(e.messageDErreur);
-		}
-		*/
+			} catch (empreinteNExistepas e) {
+				//e.printStackTrace();
+				System.out.println(e.messageDErreur);
+			}
+			break;
+		default:
+			break;
+		}	
+	
 	}
 
 }

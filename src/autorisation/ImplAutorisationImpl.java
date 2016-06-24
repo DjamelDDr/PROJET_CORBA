@@ -2,9 +2,9 @@ package autorisation;
 
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map.Entry;
 
-import annuaire.Collaborateur;
 import autorisation.AutorisationPackage.autorisationCollabInterdite;
 
 public class ImplAutorisationImpl extends AutorisationPOA{	
@@ -39,8 +39,11 @@ public class ImplAutorisationImpl extends AutorisationPOA{
 	public boolean autorisationPermanent(int id, String heureDebut,
 			String heureFin, String numPorte)
 			throws autorisationCollabInterdite {
-		// TODO Auto-generated method stub
-		return false;
+		boolean repose= false;
+		if (touteLesAutoriz.containsKey(id)){
+			repose = true;
+		}else throw new autorisationCollabInterdite("Vous n'etes pas autoriser à entrer");
+		return true;
 	}
 /*
 	public String touteLesAutoriz(int idCollab, String typeCollab ){
@@ -60,8 +63,11 @@ public class ImplAutorisationImpl extends AutorisationPOA{
 	public boolean autorisationPonctuel(int id, String jourDebut,
 			String jourFin, String heureDebut, String heureFin, String numPorte)
 			throws autorisationCollabInterdite {
-		// TODO Auto-generated method stub
-		return false;
+		boolean repose= false;
+		if (touteLesAutoriz.containsKey(id)){
+			repose = true;
+		}else throw new autorisationCollabInterdite("Vous n'etes pas autoriser à entrer");
+		return true;
 	}
 
 	public ImplAutorisationImpl() {
@@ -76,11 +82,16 @@ public class ImplAutorisationImpl extends AutorisationPOA{
 		touteLesAutoriz.put(1, zone_1);
 		touteLesAutoriz.put(1, zone_2);
 		*/
+		touteLesAutoriz.put(1, zone_1);
+		touteLesAutoriz.put(1, zone_2);
+		touteLesAutoriz.put(3, zone_3);
+		
 	}
 	
 	public ObjetZone zone_1 = new ObjetZone("ZONE_1","PERMANENT");
 	public ObjetZone zone_2 = new ObjetZone("ZONE_2","PERMANENT");
 	public ObjetZone zone_3 = new ObjetZone("ZONE_3","PERMANENT");
+	
 	//list de portes pour les 3 zone
 	public ObjetPorte p11 = new ObjetPorte("P1_Z1");
 	public ObjetPorte p12 = new ObjetPorte("P2_Z1");
