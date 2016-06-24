@@ -139,7 +139,7 @@ public class _AnnuaireStub extends org.omg.CORBA.portable.ObjectImpl
     /**
      * Operation associationDansAnnuaire
      */
-    public boolean associationDansAnnuaire(int id, String photo)
+    public String associationDansAnnuaire(int id, String photo)
         throws annuaire.AnnuairePackage.collabNExistepas
     {
         while(true)
@@ -153,7 +153,7 @@ public class _AnnuaireStub extends org.omg.CORBA.portable.ObjectImpl
                     annuaire.IdHelper.write(_output,id);
                     annuaire.PhotoHelper.write(_output,photo);
                     _input = this._invoke(_output);
-                    boolean _arg_ret = _input.read_boolean();
+                    String _arg_ret = _input.read_string();
                     return _arg_ret;
                 }
                 catch(org.omg.CORBA.portable.RemarshalException _exception)

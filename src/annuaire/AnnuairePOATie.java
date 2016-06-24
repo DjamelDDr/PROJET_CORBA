@@ -83,7 +83,7 @@ public class AnnuairePOATie extends AnnuairePOA
     /**
      * Operation associationDansAnnuaire
      */
-    public boolean associationDansAnnuaire(int id, String photo)
+    public String associationDansAnnuaire(int id, String photo)
         throws annuaire.AnnuairePackage.collabNExistepas
     {
         return _tie.associationDansAnnuaire( id,  photo);

@@ -84,13 +84,21 @@ public class ImplAutorisationImpl extends AutorisationPOA{
 		*/
 		touteLesAutoriz.put(1, zone_1);
 		touteLesAutoriz.put(1, zone_2);
-		touteLesAutoriz.put(3, zone_3);
+		touteLesAutoriz.put(1, zone_3);
+		touteLesAutoriz.put(2, zone_3);
 		
+		touteLesAutoriz.put(1, zone_1l);
+		touteLesAutoriz.put(1, zone_2l);
+		touteLesAutoriz.put(1, zone_3l);
 	}
 	
 	public ObjetZone zone_1 = new ObjetZone("ZONE_1","PERMANENT");
 	public ObjetZone zone_2 = new ObjetZone("ZONE_2","PERMANENT");
 	public ObjetZone zone_3 = new ObjetZone("ZONE_3","PERMANENT");
+	
+	public ObjetZone zone_1l = new ObjetZone("ZONE_1","PONCTUEL");
+	public ObjetZone zone_2l = new ObjetZone("ZONE_2","PONCTUEL");
+	public ObjetZone zone_3l = new ObjetZone("ZONE_3","PONCTUEL");
 	
 	//list de portes pour les 3 zone
 	public ObjetPorte p11 = new ObjetPorte("P1_Z1");

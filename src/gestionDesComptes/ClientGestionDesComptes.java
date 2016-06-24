@@ -123,7 +123,7 @@ public class ClientGestionDesComptes {
 						}
 						break;
 					case 2://RH: //modifier
-						boolean reponseii=false;
+						String reponseii="";
 						System.out.println("pour la recherche du collaborateur");
 						System.out.println("entrer l'id ");
 						int idzz = entree_id.nextInt();
@@ -133,7 +133,7 @@ public class ClientGestionDesComptes {
 						String photozz = entree_photo.nextLine();
 						try {
 						reponseii= serviceAnnuaire.associationDansAnnuaire(1, photozz);
-						if (reponseii)System.out.println("Le collabolarateur existe:  ");
+						if (!reponseii.isEmpty())System.out.println("Le collabolarateur existe:  ");
 							try {
 								boolean reponse = false;	
 								System.out.println("Les modifications");
@@ -236,7 +236,7 @@ public class ClientGestionDesComptes {
 						}
 						break;
 					case 2://Accueil : modifier :// le metching se fait avec l'id et le nom
-						boolean reponseii=false;
+						String reponseii="";
 						System.out.println("pour la recherche du collaborateur");
 						System.out.println("entrer l'id ");
 						int idzz = entree_id.nextInt();
@@ -246,7 +246,7 @@ public class ClientGestionDesComptes {
 						String photozz = entree_photo.nextLine();
 						try {
 						reponseii= serviceAnnuaire.associationDansAnnuaire(1, photozz);
-						if (reponseii)System.out.println("Le collabolarateur existe:  ");
+						if (!reponseii.isEmpty())System.out.println("Le collabolarateur existe:  ");
 							try {
 								boolean reponse = false;	
 								System.out.println("Les modifications");

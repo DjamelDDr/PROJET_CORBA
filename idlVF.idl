@@ -44,7 +44,7 @@
 			
 			long ajouterDansAnnuaire(in Collaborateur c) raises (collabExisteDeja);
 			boolean modifierDansAnnuaire(in Id id, in Nom nom, in Prenom prenom, in MotDePasse mdp,in Photo photo) raises (collabNExistepas );		
-			boolean associationDansAnnuaire(in Id id, in Photo photo) raises (collabNExistepas );
+			string associationDansAnnuaire(in Id id, in Photo photo) raises (collabNExistepas );
 			
 			boolean supprimerDansAnnuaire(in Id id,in Photo photo,in string typeDuCollb) raises (collabNExistepas);
 			boolean verifierDansAnnuaire(in Id id, in MotDePasse mdp) raises (collabNExistepas );

@@ -79,27 +79,47 @@ public class ClientEntreeSortie {
 		switch (col) {
 		case "PERMANENT":
 			try {
-				r = serviceAutoriz.autorisationPermanent(idCollaborateur,"heureDebut", "heureFin", "numPorte");
-				if(r)
-					System.out.println("Entrer ");
-				else System.out.println("entrée refusée ");
-			} catch (autorisationCollabInterdite e) {
-				e.printStackTrace();
+				String estdsAnn =serviceAnnuaire.associationDansAnnuaire(idCollaborateur, photo);
+				//System.out.println(estdsAnn);
+				try {
+					serviceEmpreinte.verifierEmpreinte(idCollaborateur, empreinte);
+					try {
+						serviceAutoriz.autorisationPermanent(idCollaborateur,"heureDebut", "heureFin", "numPorte");
+						System.out.println("Entrer ");
+					} catch (autorisationCollabInterdite e) {
+						//System.out.println(e.messageDErreur);
+						System.out.println("Vous n'avez pas l'accès à cette zone");
+					}
+				} catch (empreinteNExistepas e) {
+					//e.printStackTrace();
+					System.out.println(e.messageDErreur);
+				}
+			} catch (collabNExistepas e1) {
+				// TODO Auto-generated catch block
+				System.out.println(e1.messageDErreur);
 			}
 			break;
 		case "PONCTUEL":
 			try {
-				if (serviceEmpreinte.verifierEmpreinte(1, "lempreinte")) {
+				String estdsAnn =serviceAnnuaire.associationDansAnnuaire(idCollaborateur, photo);
+				System.out.println("sssssssss "+estdsAnn);
+			} catch (collabNExistepas e1) {
+				// TODO Auto-generated catch block
+				System.out.println(e1.messageDErreur);
+			}
+			try {
+				serviceEmpreinte.verifierEmpreinte(idCollaborateur, empreinte);
 					System.out.println("l'empreinte exite");
-				}else{
-					throw new empreinteNExistepas("le collaborateur n'existe pas");
-				}
-
 			} catch (empreinteNExistepas e) {
-				//e.printStackTrace();
 				System.out.println(e.messageDErreur);
 			}
-			break;
+			try {
+				serviceAutoriz.autorisationPonctuel(idCollaborateur, "jourDebut", "jourFin", "heureDebut", "heureFin", "numPorte");
+				System.out.println("Entrer ");
+			} catch (autorisationCollabInterdite e) {
+				System.out.println(e.messageDErreur);
+			}
+			break;		
 		default:
 			break;
 		}	

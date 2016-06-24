@@ -22,7 +22,7 @@ public interface AnnuaireOperations
     /**
      * Operation associationDansAnnuaire
      */
-    public boolean associationDansAnnuaire(int id, String photo)
+    public String associationDansAnnuaire(int id, String photo)
         throws annuaire.AnnuairePackage.collabNExistepas;
 
     /**

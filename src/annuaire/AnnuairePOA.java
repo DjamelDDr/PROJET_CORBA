@@ -108,10 +108,10 @@ public abstract class AnnuairePOA extends org.omg.PortableServer.Servant
 
         try
         {
-            boolean _arg_result = associationDansAnnuaire(arg0_in, arg1_in);
+            String _arg_result = associationDansAnnuaire(arg0_in, arg1_in);
 
             _output = handler.createReply();
-            _output.write_boolean(_arg_result);
+            _output.write_string(_arg_result);
 
         }
         catch (annuaire.AnnuairePackage.collabNExistepas _exception)

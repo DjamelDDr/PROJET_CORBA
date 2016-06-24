@@ -58,8 +58,8 @@ public class ImplAnnuaireImpl extends AnnuairePOA{
 		return reponse;
 	}
 	@Override
-	public boolean associationDansAnnuaire(int id, String photo)throws collabNExistepas {
-		boolean reponse = false;
+	public String associationDansAnnuaire(int id, String photo)throws collabNExistepas {
+		String reponse = "";
 //		initialise();//JDD
 		if (dansAnnuairePerm.size()==0 && dansAnnuairePonc.size()==0 ) {				
 			throw new collabNExistepas("Le collaborateur n'existe pas");
@@ -67,12 +67,15 @@ public class ImplAnnuaireImpl extends AnnuairePOA{
 		for (Entry<Integer, Collaborateur> e : dansAnnuairePerm.entrySet()) {
 			if (e.getValue().photo.toString().toUpperCase().equals(photo.toString().toUpperCase())  && 
 					(e.getValue().idCollab==id )){
-				reponse = true;	break;
+				reponse = "Bonjour, "+e.getValue().nom.toString().toUpperCase()
+						+" "+e.getValue().prenom.toString().toUpperCase();	
+				break;
 			}else {
 				for (Entry<Integer, Collaborateur> ep : dansAnnuairePonc.entrySet()) {
 					if (ep.getValue().photo.toString().toUpperCase().equals(photo.toString().toUpperCase())  && 
 							(ep.getValue().idCollab==id )){
-						reponse = true;	break;
+						reponse = "Bonjour, "+e.getValue().nom.toString()+" "+e.getValue().prenom.toString();	
+						break;
 					}else {
 						throw new collabNExistepas("Le collaborateur n'existe pas");
 					}
