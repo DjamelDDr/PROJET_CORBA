@@ -104,7 +104,7 @@ public class ClientGestionDesComptes {
 					case 1://RH: ajouter
 						System.out.println("entrer le Nom");
 						String nomz = entree_Nom.nextLine();				
-						System.out.println("entrer l'annienne photo :");
+						System.out.println("entrer la photo :");
 						String photoz = entree_photo.nextLine();	
 						System.out.println("entrer le Prenom");
 						String prenomz = entree_Prenom.nextLine();

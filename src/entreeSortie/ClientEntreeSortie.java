@@ -103,21 +103,21 @@ public class ClientEntreeSortie {
 			try {
 				String estdsAnn =serviceAnnuaire.associationDansAnnuaire(idCollaborateur, photo);
 				System.out.println("sssssssss "+estdsAnn);
+				try {
+					serviceEmpreinte.verifierEmpreinte(idCollaborateur, empreinte);
+					try {
+						serviceAutoriz.autorisationPonctuel(idCollaborateur, "jourDebut", "jourFin", 
+								"heureDebut", "heureFin", "numPorte");
+						System.out.println("Entrer ");
+					} catch (autorisationCollabInterdite e) {
+						System.out.println(e.messageDErreur);
+					}
+				} catch (empreinteNExistepas e) {
+					System.out.println(e.messageDErreur);
+				}
 			} catch (collabNExistepas e1) {
 				// TODO Auto-generated catch block
 				System.out.println(e1.messageDErreur);
-			}
-			try {
-				serviceEmpreinte.verifierEmpreinte(idCollaborateur, empreinte);
-					System.out.println("l'empreinte exite");
-			} catch (empreinteNExistepas e) {
-				System.out.println(e.messageDErreur);
-			}
-			try {
-				serviceAutoriz.autorisationPonctuel(idCollaborateur, "jourDebut", "jourFin", "heureDebut", "heureFin", "numPorte");
-				System.out.println("Entrer ");
-			} catch (autorisationCollabInterdite e) {
-				System.out.println(e.messageDErreur);
 			}
 			break;		
 		default:
