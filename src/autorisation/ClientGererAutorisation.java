@@ -84,6 +84,8 @@ public class ClientGererAutorisation {
 				if(lautoriz.retirerAutorisation(idSalzA, zz, col)){
 					System.out.println("l'autorisation à la zone est retirée");
 				};
+				
+				
 			break;
 			}
 		}
